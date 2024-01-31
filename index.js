@@ -15,8 +15,10 @@ app.get('/user', (req, res) =>{
 
 //responsavel por pegar um usuario
 app.get('/user/:id', (req, res) =>{
-    console.log("entrou no user(get by id)")
-    res.status(200).send(req.params.id)
+    const alunoId = req.params.id;
+
+    res.status(200).send(users.find(x => x.id == alunoId))
+    //res.status(200).send(req.params.id)
 })
 
 //criar novos usuarios
