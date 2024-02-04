@@ -9,16 +9,13 @@ app.get('/carro', (req, res) =>{
     req.status(200).send({carros: carros})
 })
 app.get('/carro:id', (req, res) =>{
-    const alunoId = req.params.id
-    res.status(200).send(users.find(x => x.id == alunoId))
+    const carroID = req.params.id
+    res.status(200).send(carros.find(x => x.id == carroID))
 })
-app.get('/carro', (req, res) =>{
-    req.status(200).send({carros: carros})
+app.post('/carro', (req, res) =>{
+    carros.push(req.body)
+    res.status(200).send(req.params)
 })
-app.get('/carro', (req, res) =>{
-    req.status(200).send({carros: carros})
-})
-
 app.listen(3000, () => {
     console.log("Servidor iniciado!")
 })
